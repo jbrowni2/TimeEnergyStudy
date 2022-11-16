@@ -99,7 +99,9 @@ def apply_trap(wp, rise, flat):
         + wp[i - 2 * rise - flat])/rise
     )
 
-    return w_trap, np.max(w_trap), np.argmax(w_trap)
+    trap_time = find_idx(w_trap, 0.1*np.max(w_trap), np.argmax(w_trap))
+
+    return w_trap, np.max(w_trap), trap_time
 
 
 

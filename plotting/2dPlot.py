@@ -6,8 +6,9 @@ import seaborn as sns
 
 df = pd.read_csv(r'../timeVsSig.csv')
 
-plt.scatter(df["True_T"]*8, df["sig"]*8)
+plt.errorbar(df["True_T"]*8, df["mean"]*8, yerr=df["mean_error"]*8, fmt='b.')
 #plt.xlim(0,5)
-plt.xlabel("True T[ns]")
-plt.ylabel("sig of deltaT [ns]")
+plt.xlabel("True Rise Time [ns]")
+plt.ylabel("Mean of ABS(Calculated Rise Time - True Rise Time) [ns]")
+plt.title("Mean of ABS(Calculated Rise Time - True Rise Time) Vs True Rise Time w/ Energy = 2.4 KeV")
 plt.show()
